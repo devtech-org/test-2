@@ -20,6 +20,13 @@ on:
           - f
           - t
 
+jobs:
+  build:
+    runs-on: ubuntu-lates
+    steps:
+      - name: print hello world
+        run: |
+          echo hi world
 
         
 
