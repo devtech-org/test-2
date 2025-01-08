@@ -9,8 +9,8 @@ on:
         default : 'false'
         type: choice
         options:
-          - f
-          - t
+          - fs
+          - ts
       runcodeScan:
         description: 'If you want to skip Mend, Coverity and Sonar Scanning then make sure to provide input has true'
         required: true
