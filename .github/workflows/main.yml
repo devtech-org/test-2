@@ -20,13 +20,6 @@ on:
           - f
           - t
 
-jobs:
-  build:
-    runs-on: [self-hosted, nsp-runner]
-    steps:
-      - name: checkout repository
-        uses: actions/checkout@v4
-
 
         
 
