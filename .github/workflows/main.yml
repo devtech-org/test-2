@@ -1,0 +1,34 @@
+name: securityvision-core
+
+on:
+  workflow_dispatch:
+    inputs:    
+      deleteM2:
+        description: 'If you want to skip m2 folder deletion then make sure to provide input has true'
+        required: true
+        default : 'false'
+        type: choice
+        options:
+          - false
+          - true
+      runcodeScan:
+        description: 'If you want to skip Mend, Coverity and Sonar Scanning then make sure to provide input has true'
+        required: true
+        default : 'false'
+        type: choice
+        options:
+          - false
+          - true
+
+jobs:
+  build:
+    runs-on: [self-hosted, nsp-runner]
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+
+        
+
+
+   
