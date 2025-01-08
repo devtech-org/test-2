@@ -1,34 +1,26 @@
-name: securityvision-core
-
+name: Manual Trigger Workflow with loglevel & tags
+#get log & tags information
 on:
   workflow_dispatch:
-    inputs:    
-      deleteM2:
-        description: 'If you want to skip m2 folder deletion then make sure to provide input has true'
+    inputs:
+      logLevel:
+        description: 'Log level'
         required: true
-        default : 'false'
+        default: 'information'
         type: choice
         options:
-          - fs
-          - ts
-      runcodeScan:
-        description: 'If you want to skip Mend, Coverity and Sonar Scanning then make sure to provide input has true'
+          - information
+          - debug
+          - warning
+          - critical
+      tags:
+        description: 'Purpose of Run This Workflow?'
         required: true
-        default : 'false'
-        type: choice
-        options:
-          - f
-          - t
+        type: string
 
 jobs:
-  build:
-    runs-on: ubuntu-lates
+  print-tag:
+    runs-on: ubuntu-latest
     steps:
-      - name: print hello world
-        run: |
-          echo hi world
-
-        
-
-
-   
+      - name: Print the purpose of run
+        run: echo  ${{ inputs.tags }} purpose
