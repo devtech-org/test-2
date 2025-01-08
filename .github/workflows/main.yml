@@ -1,26 +1,34 @@
-name: Manual Trigger Workflow with loglevel & tags
-#get log & tags information
+name: securityvision-core
+
 on:
   workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
+    inputs:    
+      deleteM2:
+        description: 'If you want to skip m2 folder deletion then make sure to provide input has true'
         required: true
-        default: 'information'
+        default : 'false'
         type: choice
         options:
-          - information
-          - debug
-          - warning
-          - critical
-      tags:
-        description: 'Purpose of Run This Workflow?'
+          - false
+          - true
+      runcodeScan:
+        description: 'If you want to skip Mend, Coverity and Sonar Scanning then make sure to provide input has true'
         required: true
-        type: string
+        default : 'false'
+        type: choice
+        options:
+          - false
+          - true
 
 jobs:
-  print-tag:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: [self-hosted, nsp-runner]
     steps:
-      - name: Print the purpose of run
-        run: echo  ${{ inputs.tags }} purpose
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+
+        
+
+
+   
