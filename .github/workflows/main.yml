@@ -22,7 +22,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, nsp-runner]
+    runs-on: ubuntu-latest
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
