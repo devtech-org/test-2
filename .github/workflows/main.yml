@@ -2,6 +2,8 @@ name: securityvision-core
 
 on:
   workflow_dispatch:
+    branches:
+    - dev
     inputs:    
       deleteM2:
         description: 'If you want to skip m2 folder deletion then make sure to provide input has true'
@@ -22,7 +24,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, nsp-runner]
+    runs-on: ubuntu-latest
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
