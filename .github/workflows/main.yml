@@ -1,8 +1,8 @@
-name: securityvision-core
+zzzname: securityvision-core
 
 on:
   workflow_dispatch:
-    branches:
+    branch:
     - dev
     inputs:    
       deleteM2:
